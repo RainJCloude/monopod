@@ -1,0 +1,52 @@
+[0.005s] Invoking command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/claudio/GymEnvs/prisma_walker_ros2/src/monopod -DCMAKE_INSTALL_PREFIX=/home/claudio/GymEnvs/prisma_walker_ros2/install/monopod
+[0.044s] -- The C compiler identification is GNU 11.4.0
+[0.087s] -- The CXX compiler identification is GNU 11.4.0
+[0.091s] -- Detecting C compiler ABI info
+[0.142s] -- Detecting C compiler ABI info - done
+[0.150s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.150s] -- Detecting C compile features
+[0.151s] -- Detecting C compile features - done
+[0.154s] -- Detecting CXX compiler ABI info
+[0.226s] -- Detecting CXX compiler ABI info - done
+[0.230s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.231s] -- Detecting CXX compile features
+[0.231s] -- Detecting CXX compile features - done
+[0.232s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.345s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.395s] -- Found controller_manager: 2.43.1 (/opt/ros/humble/share/controller_manager/cmake)
+[0.421s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.424s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.429s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.436s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.445s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.561s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.563s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.577s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.606s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.607s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.616s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.618s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.623s] -- Found TinyXML2 via Config file: TinyXML2_DIR-NOTFOUND
+[0.629s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.633s] -- Looking for pthread.h
+[0.686s] -- Looking for pthread.h - found
+[0.686s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.769s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.770s] -- Found Threads: TRUE  
+[0.827s] -- Found tf2_geometry_msgs: 0.25.8 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[0.835s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[0.835s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[0.835s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.870s] -- Found rclpy: 3.3.14 (/opt/ros/humble/share/rclpy/cmake)
+[0.925s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_python/cmake/ament_python_install_package.cmake:66 (message):
+[0.926s]   ament_python_install_package() the Python package folder
+[0.926s]   '/home/claudio/GymEnvs/prisma_walker_ros2/src/monopod/monopod' doesn't
+[0.926s]   contain an '__init__.py' file
+[0.926s] Call Stack (most recent call first):
+[0.926s]   /opt/ros/humble/share/ament_cmake_python/cmake/ament_python_install_package.cmake:39 (_ament_cmake_python_install_package)
+[0.926s]   CMakeLists.txt:26 (ament_python_install_package)
+[0.926s] 
+[0.926s] [0m
+[0.926s] -- Configuring incomplete, errors occurred!
+[0.926s] See also "/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod/CMakeFiles/CMakeOutput.log".
+[0.933s] Invoked command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod' returned '1': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/claudio/GymEnvs/prisma_walker_ros2/src/monopod -DCMAKE_INSTALL_PREFIX=/home/claudio/GymEnvs/prisma_walker_ros2/install/monopod

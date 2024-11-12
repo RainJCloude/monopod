@@ -1,0 +1,10 @@
+In order to change the leg lenghts, modify:
+
+- The "albero 1, lenght"
+
+Within the fixed joints attached to the albero_1
+As child: joint name = link_albero_1
+	-Modify the x as the half of the albero_1 lenght
+
+As Parent: joint names = alb_conn_bot_1, albero_conn_retro_m2
+ 	-Modify the z offset as the half of the albero_1 lenght

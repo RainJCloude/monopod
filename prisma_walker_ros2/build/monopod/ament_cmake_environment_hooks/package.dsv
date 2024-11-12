@@ -1,0 +1,4 @@
+source;share/monopod/local_setup.bash
+source;share/monopod/local_setup.dsv
+source;share/monopod/local_setup.sh
+source;share/monopod/local_setup.zsh

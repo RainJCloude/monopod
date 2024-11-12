@@ -1,0 +1,6 @@
+Invoking command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/claudio/GymEnvs/prisma_walker_ros2/src/monopod -DCMAKE_INSTALL_PREFIX=/home/claudio/GymEnvs/prisma_walker_ros2/install/monopod
+Invoked command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/claudio/GymEnvs/prisma_walker_ros2/src/monopod -DCMAKE_INSTALL_PREFIX=/home/claudio/GymEnvs/prisma_walker_ros2/install/monopod
+Invoking command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/claudio/GymEnvs/prisma_walker_ros2/build/monopod -- -j16 -l16
+Invoked command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/claudio/GymEnvs/prisma_walker_ros2/build/monopod -- -j16 -l16
+Invoking command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/claudio/GymEnvs/prisma_walker_ros2/build/monopod
+Invoked command in '/home/claudio/GymEnvs/prisma_walker_ros2/build/monopod' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/claudio/GymEnvs/prisma_walker_ros2/build/monopod
