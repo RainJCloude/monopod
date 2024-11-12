@@ -3,7 +3,8 @@
 ASSET_PATH="~/GymEnvs/prisma_walker_isaaclab/asset/"
 ASSET_PATH=$(eval echo "$ASSET_PATH")
 
-URDF_PATH="$ASSET_PATH/urdf/prisma_walker.urdf"
+URDF_PATH="$ASSET_PATH/../../prisma_walker_ros2/src/monopod/urdf/prisma_walker.urdf"
+URDF_ASSET_PATH="$ASSET_PATH/urdf"
 USD_PATH="$ASSET_PATH/usd_converted/prisma_walker_usd.usd"
 
 XACRO_PATH="$ASSET_PATH/../../prisma_walker_ros2/src/monopod/urdf/prisma_walker.urdf.xacro"
@@ -14,12 +15,12 @@ ASSET_PATH=${2:-$ASSET_PATH}
 
 ROD_LENGTH=${1:-0.5}
 
-echo "Asset path is will be stored in: $ASSET_PATH"
+echo "Urdf path is: $URDF_PATH"
 
 
 
 xacro -o "$URDF_PATH" "$XACRO_PATH" rod_length_arg:=$ROD_LENGTH
- 
+cp "$URDF_PATH" "$URDF_ASSET_PATH"
  
 # Step 1: Check if the URDF file exists
 if [[ ! -f "$URDF_PATH" ]]; then

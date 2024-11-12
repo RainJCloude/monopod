@@ -50,7 +50,9 @@
 /home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/monopod/meshes/obj2/gamba_sx.obj
 /home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/monopod/meshes/obj2/albero_2.obj
 /home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/monopod/meshes/obj2/conn_link_1.obj
+/home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/monopod/urdf/prisma_walker.urdf
 /home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/monopod/urdf/prisma_walker.urdf.xacro
+/home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/monopod/config/rviz.rviz
 /home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/ament_index/resource_index/package_run_dependencies/monopod
 /home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/ament_index/resource_index/parent_prefix_path/monopod
 /home/claudio/GymEnvs/prisma_walker_ros2/install/monopod/share/monopod/environment/ament_prefix_path.sh

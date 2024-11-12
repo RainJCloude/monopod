@@ -21,7 +21,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "rviz_config_file", #this will be the name of the argument  
             default_value=PathJoinSubstitution(
-                [FindPackageShare("monopod"), "config", "rviz", "standing.rviz"]
+                [FindPackageShare("monopod"), "config", "rviz.rviz"]
             ),
             description="RViz config file (absolute path) to use when launching rviz.",
         )
@@ -36,16 +36,12 @@ def generate_launch_description():
         )
     )
 
-    xacro_path = os.path.join(get_package_share_directory('monopod'), "urdf", "prisma_walker.urdf.xacro")
-    with open("/home/claudio/GymEnvs/prisma_walker_isaaclab/asset/urdf/prisma_walker.urdf", 'r') as infp:
+    urdf_path = os.path.join(get_package_share_directory('monopod'), "urdf", "prisma_walker.urdf")
+
+    with open(urdf_path, 'r') as infp:
         robot_desc = infp.read()
+ 
 
-    #get_package_share_directory and FindPackageShare seems to be the same thing
-    rviz_config = os.path.join(
-        get_package_share_directory('monopod'), "config", "rviz", "standing.rviz"
-    )
-
-    urdf_string = Command(['xacro ', xacro_path])
     robot_description = {"robot_description": robot_desc} #this wants the string with the whole content, not the path to the file. It is a parameter
 
 
@@ -70,24 +66,15 @@ def generate_launch_description():
         executable="rviz2",
         name="rviz2",
         output="log",
-        arguments=["-d", rviz_config], #This is an argument, and must be a path
+        arguments=["-d", LaunchConfiguration("rviz_config_file")], #This is an argument, and must be a path
     )
-
-
-    declared_arguments.append(DeclareLaunchArgument('gz_args', default_value='-r -v 1 empty.sdf',
-                              description='Arguments for gz_sim'),)
-    
+ 
     
     nodes_to_start = [
         joint_state_publisher_node,
-        robot_state_publisher_node, #publish pose of each link and transformation to know ehre the robot is
+        robot_state_publisher_node, 
         rviz_node,
-        #*ign,
-        #control_node, #if your hardware interface is the simulator, the ros-control will be the one specified in the plugin gazebo, 
-        #joint_trajectory_controller,
-        #joint_state_broadcaster, #publish the state of the robot as sensor-masgs for control (like the joints pos e vel)
-        #delay_joint_traj_controller, #ros controller chosen. I could also use a psition controller
-        #delay_joint_state_broadcaster
+ 
     ]
     
     """In rviz, quando selezioni il modello, devi mettere il topic /robot_descriptio in Description topic"""

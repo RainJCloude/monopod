@@ -47,6 +47,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/claudio/GymEnvs/prisma_walker_ros2/src/monopod/launch"
     "/home/claudio/GymEnvs/prisma_walker_ros2/src/monopod/meshes"
     "/home/claudio/GymEnvs/prisma_walker_ros2/src/monopod/urdf"
+    "/home/claudio/GymEnvs/prisma_walker_ros2/src/monopod/config"
     )
 endif()
 
