@@ -34,5 +34,5 @@ if [[ ! -d "$(dirname "$USD_PATH")" ]]; then
 fi
 
 # Step 3: Run the Python conversion script
-#python3 ~/Isaac/IsaacLab/source/standalone/tools/convert_urdf.py "$URDF_PATH" "$USD_PATH" --merge-joints --make-instanceable
+python3 ~/Isaac/IsaacLab/source/standalone/tools/convert_urdf.py "$URDF_PATH" "$USD_PATH" --merge-joints --make-instanceable
 

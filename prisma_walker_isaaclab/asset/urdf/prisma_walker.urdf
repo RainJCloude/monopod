@@ -239,19 +239,19 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="9.7" radius="0.01"/>
+        <cylinder length="99" radius="0.01"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="9.7" radius="0.01"/>
+        <cylinder length="99" radius="0.01"/>
       </geometry>
     </collision>
   </link>
   <joint name="link_albero_1" type="fixed">
-    <origin rpy="1.5708 0 -1.5708" xyz="4.85 0 0.02"/>
+    <origin rpy="1.5708 0 -1.5708" xyz="49.5 0 0.02"/>
     <parent link="link_1"/>
     <child link="albero_1"/>
     <axis xyz="0 0 0"/>
@@ -277,7 +277,7 @@
     </collision>
   </link>
   <joint name="alb_conn_bot_1" type="fixed">
-    <origin rpy="-3.1416 0 0" xyz="-0.047996 -9.5544E-05 -4.85"/>
+    <origin rpy="-3.1416 0 0" xyz="-0.047996 -9.5544E-05 -49.5"/>
     <parent link="albero_1"/>
     <child link="conn_albero_1_bot"/>
     <axis xyz="0 0 0"/>
@@ -303,7 +303,7 @@
     </collision>
   </link>
   <joint name="albero_conn_retro_m2" type="fixed">
-    <origin rpy="1.5708 -1.5708 0" xyz="0 -0.02 -4.85"/>
+    <origin rpy="1.5708 -1.5708 0" xyz="0 -0.02 -49.5"/>
     <parent link="albero_1"/>
     <child link="conn_retro_m2"/>
     <axis xyz="0 0 0"/>
