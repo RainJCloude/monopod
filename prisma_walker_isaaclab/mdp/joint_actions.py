@@ -119,8 +119,8 @@ class JointAction(ActionTerm):
         # apply the affine transformations
         """create a vector of size num_envs with the indexing"""
         self.previous_act = 0
-        val_m1_for_env = self.env.m1JointPos[(self.env.index_imit).tolist()].clone()
-        val_m2_for_env = self.env.m2JointPos[(self.env.index_imit).tolist()].clone()
+        val_m1_for_env = self.env.m1RefJointPos[(self.env.index_imit).tolist()].clone()
+        val_m2_for_env = self.env.m1RefJointPos[(self.env.index_imit).tolist()].clone()
 
         self._offset= torch.column_stack((val_m1_for_env,
                                             val_m2_for_env,

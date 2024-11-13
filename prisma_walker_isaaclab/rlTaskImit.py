@@ -48,8 +48,8 @@ class rlTaskIm(ManagerBasedRLEnv):
             
             np.set_printoptions(threshold=sys.maxsize)
 
-            self.m1JointPos = torch.from_numpy(m1).float().to('cuda:0')
-            self.m2JointPos = torch.from_numpy(m2).float().to('cuda:0')
+            self.m1RefJointPos = torch.from_numpy(m1).float().to('cuda:0')
+            self.m2RefJointPos = torch.from_numpy(m2).float().to('cuda:0')
 
             self.pos_x = torch.from_numpy(pos_x).float().to('cuda:0')
             self.pos_z = torch.from_numpy(pos_z).float().to('cuda:0')

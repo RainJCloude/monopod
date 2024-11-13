@@ -24,12 +24,12 @@ from omni.isaac.lab.sensors import ContactSensorCfg, RayCasterCfg, patterns
 from omni.isaac.lab.terrains import TerrainImporterCfg
 from omni.isaac.lab.utils import configclass
 from omni.isaac.lab.utils.noise import AdditiveUniformNoiseCfg as Unoise
-
+from omni.isaac.lab.assets.rigid_object import RigidObjectCfg
 
 import prisma_walker_isaaclab.mdp as prisma_walker_mdp
 import omni.isaac.lab_tasks.manager_based.locomotion.velocity.mdp as mdp
 
-from .asset.prisma_walker import PRISMA_WALKER_CFG
+from .asset.prisma_walker import PRISMA_WALKER_CFG, STEP_CFG
 ##
 # Pre-defined configs
 ##
@@ -66,6 +66,7 @@ class MySceneCfg(InteractiveSceneCfg):
     )
     # robots
     robot: ArticulationCfg = MISSING
+    step: RigidObjectCfg = MISSING
     # sensors
     height_scanner = RayCasterCfg(
         prim_path="{ENV_REGEX_NS}/Robot/base",
@@ -209,7 +210,7 @@ class RewardsCfg:
     dof_torques_l2 = RewTerm(func=mdp.joint_torques_l2, 
         weight=-5.0e-4,
     )
-    """lin_vel = RewTerm(func=prisma_walker_mdp.track_lin_vel_xy_exp, 
+    lin_vel = RewTerm(func=mdp.track_lin_vel_xy_exp, 
         weight=1,
         params={"command_name": "base_velocity", "std": math.sqrt(0.25)}
     )
@@ -217,7 +218,7 @@ class RewardsCfg:
         func=prisma_walker_mdp.pitchPenalty,
         weight=-0.01,
         params={"sensor_cfg": SceneEntityCfg("contact_forces", body_names="base_link")},
-    )"""
+    )
     imitation_joint = RewTerm(
         func=prisma_walker_mdp.imitation_joint,
         weight=1.5,
@@ -226,7 +227,7 @@ class RewardsCfg:
     foot_vel_error = RewTerm(
         func=prisma_walker_mdp.track_foot_vel,
         weight=1.5,
-        params={"command_name": "foot_velocity", "std": math.sqrt(0.25),"asset_cfg": SceneEntityCfg("robot", body_names="piede_interno"),},
+        params={"command_name": "foot_velocity", "std": math.sqrt(0.25), "asset_cfg": SceneEntityCfg("robot", body_names="piede_interno"),},
     )
     """sliding = RewTerm(
         func=prisma_walker_mdp.slippage_base,
@@ -291,7 +292,7 @@ class LocomotionVelocityRoughEnvCfg(ManagerBasedRLEnvCfg):
 
     scene.height_scanner.prim_path = "{ENV_REGEX_NS}/Robot/base_link"
     scene.robot = PRISMA_WALKER_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot")
-    
+    scene.step = STEP_CFG
 
     def __post_init__(self):
         """Post initialization."""

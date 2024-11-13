@@ -43,7 +43,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
  
-def phase_variable(env: ManagerBasedEnv, asset_cfg: SceneEntityCfg = SceneEntityCfg("robot")) -> torch.Tensor:
+def phase_variable(env: ManagerBasedEnv) -> torch.Tensor:
     return env.phase_variable_observed.unsqueeze(dim=1)
 
 
@@ -64,8 +64,8 @@ def imitation_joint(env: rlTaskImit, asset_cfg: SceneEntityCfg = SceneEntityCfg(
     env.phase_variable_observed = env.reference_phase_variable[row_indices, torch.clamp(env.index_imit, min=0, max=1816).tolist()]  
     a = env.phase_variable_observed - env.phase_variable_
     #References
-    val_m1 = env.m1JointPos[env.index_imit.tolist()]
-    val_m2 = env.m2JointPos[env.index_imit.tolist()]
+    val_m1 = env.m1RefJointPos[env.index_imit.tolist()]
+    val_m2 = env.m2RefJointPos[env.index_imit.tolist()]
      
     error_m1 = val_m1 - asset.data.joint_pos[:,0]  #joint_pos is (num_envs, num_joints)
     error_m2 = val_m2 - asset.data.joint_pos[:,1]
@@ -197,12 +197,14 @@ def reset_joints_by_file(
         new_motor_idx = torch.randint(0, env.idx_len, size = (len(env_ids),), device = 'cuda:0')
     else:
         new_motor_idx = torch.randint(0, 400, size = (len(env_ids),), device = 'cuda:0')"""
+    
+
     new_motor_idx = torch.randint(0, env.idx_len, size = (len(env_ids),), device = 'cuda:0')
 
     env.index_imit[env_ids] = new_motor_idx
     
-    val_m1_for_env = env.m1JointPos[env.index_imit[env_ids].tolist()]
-    val_m2_for_env = env.m2JointPos[env.index_imit[env_ids].tolist()]
+    val_m1_for_env = env.m1RefJointPos[env.index_imit[env_ids].tolist()]
+    val_m2_for_env = env.m2RefJointPos[env.index_imit[env_ids].tolist()]
 
     # bias these values randomly
     joint_pos_dynamixel = math_utils.sample_uniform(*position_range_dynamixel, len(env_ids), joint_pos.device)
@@ -243,12 +245,12 @@ def pitchCondition(env: ManagerBasedRLEnv, sensor_cfg: SceneEntityCfg):
 
     bodyOrientation: RigidObject = env.scene["robot"]
     quat = bodyOrientation.data.root_state_w[:,3:7]
-   
+    
     #orientation of the root (N, 4)
-    #quat = contact_sensor.data.quat_w
     """it has dimension (N,B,4)"""
 
     pitch = matrix_from_quat(quat)
+    
     """it has dimension (N,B,3,3) if taken from env.scene.sensors, (N,3,3) otherwise"""
     pitch = pitch[:,:,2]
     "Take the z-orientation of the base_link"
